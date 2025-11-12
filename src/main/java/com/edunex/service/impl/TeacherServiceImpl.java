@@ -1,0 +1,30 @@
+package com.edunex.service.impl;
+
+import com.edunex.dto.TeacherSignupDto;
+import com.edunex.model.Role;
+import com.edunex.model.Teacher;
+import com.edunex.repository.TeacherRepository;
+import com.edunex.service.TeacherService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class TeacherServiceImpl implements TeacherService {
+
+    private final TeacherRepository teacherRepository;
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+    @Override
+    public Teacher saveTeacher(TeacherSignupDto dto) {
+        Teacher teacher = Teacher.builder()
+                .name(dto.getName())
+                .email(dto.getEmail())
+                .password(passwordEncoder.encode(dto.getPassword()))
+                .role(Role.TEACHER)
+                .build();
+
+        return teacherRepository.save(teacher);
+    }
+}
