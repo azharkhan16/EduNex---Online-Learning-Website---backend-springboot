@@ -21,6 +21,7 @@ public class TeacherController {
         return ResponseEntity.ok(saved);
     }
 
+    // Just testing purpose se bnaya tha
     @GetMapping("/dashboard")
     public String teacherDashboard() {
         return "Welcome Teacher — You can access Teacher & Student APIs ";

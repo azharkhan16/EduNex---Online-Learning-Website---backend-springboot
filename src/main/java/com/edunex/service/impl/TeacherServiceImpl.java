@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class TeacherServiceImpl implements TeacherService {
@@ -27,4 +29,19 @@ public class TeacherServiceImpl implements TeacherService {
 
         return teacherRepository.save(teacher);
     }
+
+    @Override
+    public List<Teacher> getAllTeachers() {
+        return teacherRepository.findAll();
+    }
+
+    @Override
+    public boolean deleteTeacher(Long id) {
+        if(teacherRepository.existsById(id)) {
+            teacherRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+
 }

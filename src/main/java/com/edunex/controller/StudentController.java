@@ -21,6 +21,7 @@ public class StudentController {
         return ResponseEntity.ok(saved);
     }
 
+    // Just testing purpose se bnaya tha
     @GetMapping("/dashboard")
     public String studentDashboard() {
         return "Welcome Student — You can access only Student APIs ";
