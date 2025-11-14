@@ -7,28 +7,26 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "admins")
+@Table(name = "courses")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Admin {
+public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;    // Added at day 4
+    private String title;
 
-    @Column(unique = true, nullable = false)
-    private String email;
+    @Column(length = 2000)
+    private String description;
 
-    private String password;
+    private String videoUrl;
 
-    @Enumerated(EnumType.STRING)
-    private Role role = Role.ADMIN;
+    private Long teacherId;  // teacher who created course
 
     @CreationTimestamp
-    private LocalDateTime createdAt;      // Added at day 4
-
+    private LocalDateTime createdAt;
 }
