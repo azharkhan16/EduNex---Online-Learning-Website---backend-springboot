@@ -20,4 +20,10 @@ public class TeacherController {
         Teacher saved = teacherService.saveTeacher(dto);
         return ResponseEntity.ok(saved);
     }
+
+    @GetMapping("/dashboard")
+    public String teacherDashboard() {
+        return "Welcome Teacher — You can access Teacher & Student APIs ";
+    }
+
 }

@@ -20,4 +20,10 @@ public class StudentController {
         Student saved = studentService.saveStudent(dto);
         return ResponseEntity.ok(saved);
     }
+
+    @GetMapping("/dashboard")
+    public String studentDashboard() {
+        return "Welcome Student — You can access only Student APIs ";
+    }
+
 }
