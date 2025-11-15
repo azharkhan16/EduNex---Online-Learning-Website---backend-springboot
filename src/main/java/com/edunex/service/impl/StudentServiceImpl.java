@@ -1,6 +1,7 @@
 package com.edunex.service.impl;
 
 import com.edunex.dto.StudentSignupDto;
+import com.edunex.exception.EmailAlreadyExistsException;
 import com.edunex.model.Role;
 import com.edunex.model.Student;
 import com.edunex.repository.StudentRepository;
@@ -20,6 +21,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student saveStudent(StudentSignupDto dto) {
+
+        // STEP 1 - Duplicate email check
+        if (studentRepository.findByEmail(dto.getEmail()).isPresent()) {
+            throw new EmailAlreadyExistsException("Email already exists! Try with another Email");
+        }
+        // STEP 2 - Normal save logic
         Student student = Student.builder()
                 .name(dto.getName())
                 .email(dto.getEmail())
