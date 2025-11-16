@@ -3,6 +3,7 @@ package com.edunex.security;
 import io.jsonwebtoken.*;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.Base64;
 import java.util.Date;
 
@@ -39,4 +40,20 @@ public class JwtUtil {
             return false;
         }
     }
+
+    private Claims extractAllClaims(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(SECRET_KEY)
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+    }
+
+    public Instant getExpirationInstant(String token) {
+        return extractAllClaims(token)
+                .getExpiration()
+                .toInstant();
+    }
+
+
 }

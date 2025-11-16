@@ -24,7 +24,8 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable())
 //                .cors(cors -> cors.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/student/signup", "/api/teacher/signup", "/api/auth/login").permitAll()
+                        .requestMatchers("/api/student/signup", "/api/teacher/signup", "/api/auth/login",
+                                "/api/auth/refresh").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")      // Added at day 4
                         .requestMatchers("/api/teacher/**").hasAnyRole("TEACHER", "ADMIN")   // Added at day 4
                         .requestMatchers("/api/student/**").hasAnyRole("STUDENT", "TEACHER", "ADMIN")   // Added at day 4

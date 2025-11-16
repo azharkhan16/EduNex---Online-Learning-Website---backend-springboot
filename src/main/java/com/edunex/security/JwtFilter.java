@@ -1,5 +1,6 @@
 package com.edunex.security;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,22 +29,56 @@ public class JwtFilter extends OncePerRequestFilter {
 
         String authHeader = request.getHeader("Authorization");
         String token = null;
-        String email = null;
 
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            token = authHeader.substring(7);
-            email = jwtUtil.extractEmail(token);
-        }
+        // -------- TRY BLOCK TO HANDLE EXPIRED TOKEN CLEANLY --------
+        try {
+            if (authHeader != null && authHeader.startsWith("Bearer ")) {
+                token = authHeader.substring(7);
 
-        if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            var userDetails = userDetailsService.loadUserByUsername(email);
-            if (jwtUtil.validateToken(token)) {
-                var authToken = new UsernamePasswordAuthenticationToken(
-                        userDetails, null, userDetails.getAuthorities());
-                authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(authToken);
+                String email = jwtUtil.extractEmail(token);
+
+                if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                    var userDetails = userDetailsService.loadUserByUsername(email);
+
+                    if (jwtUtil.validateToken(token)) {
+                        var authToken = new UsernamePasswordAuthenticationToken(
+                                userDetails, null, userDetails.getAuthorities()
+                        );
+                        authToken.setDetails(
+                                new WebAuthenticationDetailsSource().buildDetails(request)
+                        );
+                        SecurityContextHolder.getContext().setAuthentication(authToken);
+                    }
+                }
             }
+
+        } catch (ExpiredJwtException ex) {
+
+            // ⭐ CUSTOM CLEAN EXPIRED TOKEN RESPONSE ⭐
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 401
+            response.setContentType("application/json");
+            response.getWriter().write("{\"error\": \"Access token expired\"}");
+            return; // Stop filter here
         }
+
+//        String authHeader = request.getHeader("Authorization");
+//        String token = null;
+//        String email = null;
+//
+//        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+//            token = authHeader.substring(7);
+//            email = jwtUtil.extractEmail(token);
+//        }
+//
+//        if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+//            var userDetails = userDetailsService.loadUserByUsername(email);
+//            if (jwtUtil.validateToken(token)) {
+//                var authToken = new UsernamePasswordAuthenticationToken(
+//                        userDetails, null, userDetails.getAuthorities());
+//                authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+//                SecurityContextHolder.getContext().setAuthentication(authToken);
+//            }
+//        }
 
         filterChain.doFilter(request, response);
     }
