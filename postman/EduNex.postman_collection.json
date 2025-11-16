@@ -1,0 +1,718 @@
+{
+	"info": {
+		"_postman_id": "fb9f6f33-de2d-4a18-a8b7-e1986ea021b7",
+		"name": "EduNex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41560469",
+		"_collection_link": "https://java-developer-0735.postman.co/workspace/BackendApplication~cd31b6c3-8215-444c-9e14-88b5d00b49f5/collection/41560469-fb9f6f33-de2d-4a18-a8b7-e1986ea021b7?action=share&source=collection_link&creator=41560469"
+	},
+	"item": [
+		{
+			"name": "ADMIN APIs",
+			"item": [
+				{
+					"name": "admin_dashboard",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhemhhckBnbWFpbC5jb20iLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc2MzA5ODgxMiwiZXhwIjoxNzYzMTM0ODEyfQ.I_YQnDiOuRBAdm-VsEu-kJb7FSUWL0XNfprgJcTWpfc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9879/api/admin/dashboard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"admin",
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll_users_byAdmin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// GET http://localhost:9879/api/admin/all-users\r\n// Authorization: Bearer <admin-token>",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/admin/all-users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"admin",
+								"all-users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_studentById_byAdmin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// DELETE http://localhost:9879/api/admin/delete-student/3\r\n// Authorization: Bearer <admin-token>",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/admin/delete-student/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"admin",
+								"delete-student",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_teacherById_byadmin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// DELETE http://localhost:9879/api/admin/delete-teacher/5\r\n// Authorization: Bearer <admin-token>\r\n\r\n\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/admin/delete-teacher/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"admin",
+								"delete-teacher",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addTeacher_byAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// POST /api/admin/add-teacher\r\n// Authorization: Bearer <admin-token>\r\n\r\n{\r\n  \"name\": \"Rahul Sir\",\r\n  \"email\": \"rahul@gmail.com\",\r\n  \"password\": \"rahul123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/admin/add-teacher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"admin",
+								"add-teacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addStudent_byAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// POST http://localhost:9879/api/admin/add-student\r\n// Authorization: Bearer <admin-token>\r\n\r\n{\r\n  \"name\": \"Azhar\",\r\n  \"email\": \"azhar@gmail.com\",\r\n  \"password\": \"azhar123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/admin/add-student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"admin",
+								"add-student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@gmail.com\",\r\n  \"password\": \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TEACHER APIs",
+			"item": [
+				{
+					"name": "teacher_dashboard",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWh1bEBnbWFpbC5jb20iLCJyb2xlIjoiVEVBQ0hFUiIsImlhdCI6MTc2MzExODQyNywiZXhwIjoxNzYzMTU0NDI3fQ.SUneUg8BGEVYCshH9U3mhcGh6L2HDiyQpnhqxxhrec0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9879/api/teacher/dashboard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"teacher",
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add_Course_ByTeacher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWh1bEBnbWFpbC5jb20iLCJyb2xlIjoiVEVBQ0hFUiIsImlhdCI6MTc2MzExODQyNywiZXhwIjoxNzYzMTU0NDI3fQ.SUneUg8BGEVYCshH9U3mhcGh6L2HDiyQpnhqxxhrec0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// POST http://localhost:9879/api/teacher/course/add\r\n// Header: Authorization: Bearer <teacher-token>\r\n\r\n{\r\n  \"title\": \"Java Basics\",\r\n  \"description\": \"Core Java concepts\",\r\n  \"videoUrl\": \"https://youtube.com/abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/teacher/course/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"teacher",
+								"course",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add_Materials_byTeacher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWh1bEBnbWFpbC5jb20iLCJyb2xlIjoiVEVBQ0hFUiIsImlhdCI6MTc2MzExODQyNywiZXhwIjoxNzYzMTU0NDI3fQ.SUneUg8BGEVYCshH9U3mhcGh6L2HDiyQpnhqxxhrec0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n// POST http://localhost:9879/api/teacher/material/add\r\n// Header → Authorization: Bearer <teacher-token>\r\n\r\n{\r\n  \"courseId\": 1,\r\n  \"title\": \"Java Notes - Chapter 1\",\r\n  \"pdfUrl\": \"https://example.com/java_notes.pdf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/teacher/material/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"teacher",
+								"material",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Teacher Signup Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Rahul Sir\",\r\n  \"email\": \"rahul@gmail.com\",\r\n  \"password\": \"rahul123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/teacher/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"teacher",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"rahul@gmail.com\",\r\n  \"password\": \"rahul123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "STUDENT APIs",
+			"item": [
+				{
+					"name": "student_dashboard",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhemhhckBnbWFpbC5jb20iLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc2MzA5ODgxMiwiZXhwIjoxNzYzMTM0ODEyfQ.I_YQnDiOuRBAdm-VsEu-kJb7FSUWL0XNfprgJcTWpfc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9879/api/student/dashboard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"student",
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewCourses_byStudents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWh1bEBnbWFpbC5jb20iLCJyb2xlIjoiVEVBQ0hFUiIsImlhdCI6MTc2MzExODQyNywiZXhwIjoxNzYzMTU0NDI3fQ.SUneUg8BGEVYCshH9U3mhcGh6L2HDiyQpnhqxxhrec0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// GET http://localhost:9879/api/student/courses\r\n// Header: Authorization: Bearer <student-token> \r\n//    OR\r\n// Header: Authorization: Bearer <Teacher-token>\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/student/courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"student",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View_Materials_byStudents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhemhhckBnbWFpbC5jb20iLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc2MzExODkxMSwiZXhwIjoxNzYzMTU0OTExfQ.1TCCtkJUvT6xrROVrbROvktRw-i5hkgxo-7fzH-EBdo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// GET http://localhost:9879/api/student/material/1\r\n// Header → Authorization: Bearer <student-token>",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/student/material/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"student",
+								"material",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Student Signup Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Azhar\",\r\n  \"email\": \"azhar@gmail.com\",\r\n  \"password\": \"azhar123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/student/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"student",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"rahul@gmail.com\",\r\n  \"password\": \"rahul123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "COMMON APIs",
+			"item": [
+				{
+					"name": "Student Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Azhar\",\r\n  \"email\": \"azhar@gmail.com\",\r\n  \"password\": \"azhar123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/student/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"student",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Teacher Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Rahul Sir\",\r\n  \"email\": \"rahul@gmail.com\",\r\n  \"password\": \"rahul123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/teacher/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"teacher",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"email\": \"azhar@gmail.com\",\r\n  \"password\": \"azhar123\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// Now Refresh Token API test**\r\n// POST http://localhost:9879/api/auth/refresh\r\n// BODY:\r\n\r\n{\r\n  \"refreshToken\": \"e27f9585-1dcf-4f62-a320-8dea0d66c51c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9879/api/auth/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9879",
+							"path": [
+								"api",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
